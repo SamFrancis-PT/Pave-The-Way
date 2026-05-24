@@ -1,0 +1,22 @@
+{
+  "name": "orb-wellness-partner",
+  "version": "1.0.0",
+  "description": "Premium wellness landing page for Exploration",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "next": "^14.1.0",
+    "framer-motion": "^10.16.16"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.32",
+    "autoprefixer": "^10.4.17"
+  }
+}

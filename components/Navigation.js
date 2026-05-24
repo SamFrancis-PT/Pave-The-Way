@@ -3,19 +3,22 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-const navLinks = ['Home', 'Health', 'Insights', 'Pricing']
+const navLinks = ['About', 'Services', 'Transformations', 'Contact']
 
 export default function Navigation() {
   const [activeLink, setActiveLink] = motion.useState(0)
 
   return (
-    <nav className="relative z-50 h-88 flex items-center justify-between px-clamp(22px,5vw,72px)" style={{
+    <nav className="relative z-50 h-20 flex items-center justify-between" style={{
       paddingLeft: 'clamp(22px, 5vw, 72px)',
       paddingRight: 'clamp(22px, 5vw, 72px)',
     }}>
       {/* Brand */}
-      <div className="text-2xl font-black tracking-tight">
-        Exploration
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+          <span className="text-black font-black text-sm">PTW</span>
+        </div>
+        <div className="text-xl font-black tracking-tight">Pave The Way</div>
       </div>
 
       {/* Links - Hidden on mobile */}
@@ -35,21 +38,13 @@ export default function Navigation() {
         ))}
       </div>
 
-      {/* Auth Buttons */}
-      <div className="flex gap-2.5">
-        <Link
-          href="#"
-          className="hidden md:inline-flex px-5 py-3 text-xs rounded-full border border-white/15 bg-black/25 backdrop-blur-lg text-white hover:text-accent-blue transition-all duration-300 hover:shadow-[0_0_34px_rgba(59,184,255,0.18)] hover:translate-y-[-2px]"
-        >
-          Sign in
-        </Link>
-        <Link
-          href="#"
-          className="px-5 py-3 text-xs rounded-full bg-white text-dark-900 font-semibold transition-all duration-300 hover:shadow-[0_0_34px_rgba(59,184,255,0.18)] hover:translate-y-[-2px]"
-        >
-          Join Now
-        </Link>
-      </div>
+      {/* CTA Button */}
+      <Link
+        href="#consultation"
+        className="px-6 py-3 text-xs rounded-full bg-white text-black font-semibold transition-all duration-300 hover:shadow-[0_0_34px_rgba(255,255,255,0.3)] hover:translate-y-[-2px]"
+      >
+        Book Consultation
+      </Link>
     </nav>
   )
 }

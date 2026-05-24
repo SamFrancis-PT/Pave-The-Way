@@ -1,22 +1,17 @@
-import './globals.css'
+import { Inter } from 'next/font/google'
+import '@/styles/globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Exploration - Meet Your New Wellness Partner',
-  description: 'A premium health-tech experience designed to make personal insight feel cinematic, human, and quietly futuristic.',
+  title: 'Pave The Way | Personal Training for Busy Professionals',
+  description: 'Expert 1-on-1 personal training for men aged 35-50. Build a stronger body and stronger mind with Sam Francis. 10+ years of experience, 100s of transformations.',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="bg-dark-900 text-text-primary font-archivo overflow-x-hidden">
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} bg-black text-white overflow-x-hidden`}>
         {children}
       </body>
     </html>

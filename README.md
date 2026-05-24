@@ -1,6 +1,6 @@
-# Exploration — Premium Wellness Landing Page
+# Transformation — Pave The Way Personal Training, Take steps towards your fitness goals.
 
-A cinematic health-tech landing page built with **Next.js**, **React**, **Tailwind CSS**, and **Framer Motion**.
+
 
 ## Features
 

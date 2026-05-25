@@ -2,61 +2,60 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import Image from 'next/image'
 
 const transformations = [
   {
-    image: '/transformation-1.jpg',
+    id: 1,
     title: 'Client Transformation',
     result: 'Significant muscle gain & body composition improvement',
   },
   {
-    image: '/transformation-2.jpg',
+    id: 2,
     title: 'Client Transformation',
     result: 'Impressive upper body development',
   },
   {
-    image: '/transformation-3.jpg',
+    id: 3,
     title: 'Client Transformation',
     result: 'Complete body transformation with visible muscle gain',
   },
   {
-    image: '/transformation-4.jpg',
+    id: 4,
     title: 'Client Transformation',
     result: 'Lean & defined physique achieved',
   },
   {
-    image: '/transformation-5.jpg',
+    id: 5,
     title: 'Client Transformation',
     result: 'Muscle development & fat loss success',
   },
   {
-    image: '/transformation-6.jpg',
+    id: 6,
     title: 'Client Transformation',
     result: 'Dramatic upper body transformation',
   },
   {
-    image: '/transformation-7.jpg',
+    id: 7,
     title: 'Client Transformation',
     result: 'Full-body muscle building results',
   },
   {
-    image: '/transformation-8.jpg',
+    id: 8,
     title: 'Client Transformation',
     result: 'Complete physique transformation',
   },
   {
-    image: '/transformation-9.jpg',
+    id: 9,
     title: 'Client Transformation',
     result: 'Exceptional muscle gain & definition',
   },
   {
-    image: '/transformation-10.jpg',
+    id: 10,
     title: 'Client Transformation',
     result: 'Outstanding body composition change',
   },
   {
-    image: '/transformation-11.jpg',
+    id: 11,
     title: 'Client Transformation',
     result: 'Impressive strength & muscle development',
   },
@@ -131,27 +130,37 @@ export default function Transformations() {
         {transformations.map((transformation, idx) => (
           <motion.div
             key={idx}
-            className="group relative overflow-hidden rounded-xl aspect-[3/4] bg-white/5 border border-white/10"
+            className="group relative overflow-hidden rounded-xl aspect-[3/4] bg-gradient-to-br from-white/10 to-black/50 border border-white/10 hover:border-white/20 transition-all"
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 z-10" />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
             
-            {/* Placeholder for image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-black/50 flex items-center justify-center">
-              <div className="text-center text-white/60">
-                <div className="text-4xl mb-2">📸</div>
-                <div className="text-sm">Transformation</div>
+            {/* Placeholder for image - before/after */}
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-white/5 to-black/40">
+              <div className="text-center">
+                <div className="text-5xl mb-2 opacity-40">💪</div>
+                <div className="text-xs text-white/40">Before & After</div>
               </div>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-              <p className="text-sm text-white/80 font-semibold">{transformation.result}</p>
+              <p className="text-sm text-white/90 font-semibold leading-tight">{transformation.result}</p>
             </div>
           </motion.div>
         ))}
       </motion.div>
+
+      <motion.div
+        className="mt-16 text-center"
+        initial="hidden"
+        animate={inView ? 'visible' : 'hidden'}
+        variants={itemVariants}
+      >
+        <p className="text-white/70 text-lg">
+          These are just some of the 100s of transformations I've helped create. <strong>Your transformation starts here.</strong>
+        </p>
+      </motion.div>
     </section>
   )
-}

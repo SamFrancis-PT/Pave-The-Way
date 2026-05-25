@@ -175,4 +175,3 @@ export default function Services() {
       </motion.div>
     </section>
   )
-}

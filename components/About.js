@@ -21,6 +21,7 @@ export default function About() {
   return (
     <section
       ref={ref}
+      id="about"
       className="bg-black/50 backdrop-blur py-24 md:py-32"
       style={{
         paddingLeft: 'clamp(22px, 5vw, 72px)',
@@ -59,11 +60,10 @@ export default function About() {
           <p>
             I specialize in working with busy professionals and dedicated men aged 35-50 who are ready to take their health seriously. Whether you're new to structured training or looking to level up, I remove the guesswork and provide expert guidance on how to approach strength training optimally for muscle building.
           </p>
-          <p className="text-white font-semibold text-xl">
+          <p className="text-white font-semibold text-xl mt-8">
             <strong>Strong Body | Strong Mind</strong>
           </p>
         </motion.div>
       </div>
     </section>
   )
-}

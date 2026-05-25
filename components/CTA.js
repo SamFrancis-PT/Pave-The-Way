@@ -68,4 +68,3 @@ export default function CTA() {
       </motion.div>
     </section>
   )
-}

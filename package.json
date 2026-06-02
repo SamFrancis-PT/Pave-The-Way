@@ -1,7 +1,7 @@
 {
-  "name": "orb-wellness-partner",
+  "name": "pave-the-way",
   "version": "1.0.0",
-  "description": "Premium wellness landing page for Exploration",
+  "description": "Personal training landing page for Sam Francis – Pave The Way",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

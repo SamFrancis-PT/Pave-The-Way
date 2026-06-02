@@ -46,11 +46,16 @@ export default function CTA() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
           variants={itemVariants}
         >
-          <button className="px-8 py-4 rounded-full bg-white text-black font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:translate-y-[-2px]">
+          <a
+            href="https://calendly.com/pavethewayfit/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 rounded-full bg-white text-black font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:translate-y-[-2px]"
+          >
             Book Free Consultation
-          </button>
+          </a>
           <Link
-            href="mailto:contact@pavetheway.com"
+            href="mailto:sam@pavetheway.fit"
             className="px-8 py-4 rounded-full border border-white/30 bg-white/5 backdrop-blur text-white font-semibold transition-all duration-300 hover:bg-white/10"
           >
             Get in Touch
@@ -68,3 +73,4 @@ export default function CTA() {
       </motion.div>
     </section>
   )
+}

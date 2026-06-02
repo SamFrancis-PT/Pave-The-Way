@@ -1,64 +1,19 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { useRef } from 'react'
+import Image from 'next/image'
+import { motion, useInView } from 'framer-motion'
 
 const transformations = [
-  {
-    id: 1,
-    title: 'Client Transformation',
-    result: 'Significant muscle gain & body composition improvement',
-  },
-  {
-    id: 2,
-    title: 'Client Transformation',
-    result: 'Impressive upper body development',
-  },
-  {
-    id: 3,
-    title: 'Client Transformation',
-    result: 'Complete body transformation with visible muscle gain',
-  },
-  {
-    id: 4,
-    title: 'Client Transformation',
-    result: 'Lean & defined physique achieved',
-  },
-  {
-    id: 5,
-    title: 'Client Transformation',
-    result: 'Muscle development & fat loss success',
-  },
-  {
-    id: 6,
-    title: 'Client Transformation',
-    result: 'Dramatic upper body transformation',
-  },
-  {
-    id: 7,
-    title: 'Client Transformation',
-    result: 'Full-body muscle building results',
-  },
-  {
-    id: 8,
-    title: 'Client Transformation',
-    result: 'Complete physique transformation',
-  },
-  {
-    id: 9,
-    title: 'Client Transformation',
-    result: 'Exceptional muscle gain & definition',
-  },
-  {
-    id: 10,
-    title: 'Client Transformation',
-    result: 'Outstanding body composition change',
-  },
-  {
-    id: 11,
-    title: 'Client Transformation',
-    result: 'Impressive strength & muscle development',
-  },
+  { id: 1, src: '/images/transformation-01.jpg', result: 'Significant muscle gain & body composition improvement' },
+  { id: 2, src: '/images/transformation-02.jpg', result: 'Impressive upper body development' },
+  { id: 3, src: '/images/transformation-03.jpg', result: 'Complete body transformation with visible muscle gain' },
+  { id: 4, src: '/images/transformation-04.jpg', result: 'Lean & defined physique achieved' },
+  { id: 5, src: '/images/transformation-05.jpg', result: 'Muscle development & fat loss success' },
+  { id: 6, src: '/images/transformation-06.jpg', result: 'Dramatic upper body transformation' },
+  { id: 7, src: '/images/transformation-07.jpg', result: 'Full-body muscle building results' },
+  { id: 8, src: '/images/transformation-08.jpg', result: 'Complete physique transformation' },
+  { id: 9, src: '/images/transformation-09.jpg', result: 'Exceptional muscle gain & definition' },
 ]
 
 const containerVariants = {
@@ -82,16 +37,14 @@ const itemVariants = {
 }
 
 export default function Transformations() {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  })
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
     <section
       ref={ref}
       id="transformations"
-      className="bg-black/80 backdrop-blur py-24 md:py-32"
+      className="bg-black/80 backdrop-blur"
       style={{
         paddingLeft: 'clamp(22px, 5vw, 72px)',
         paddingRight: 'clamp(22px, 5vw, 72px)',
@@ -100,7 +53,7 @@ export default function Transformations() {
       }}
     >
       <motion.h2
-        className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight mb-4 max-w-4xl"
+        className="font-black leading-[0.9] tracking-tight mb-4 max-w-4xl"
         style={{
           fontSize: 'clamp(36px, 6vw, 72px)',
           letterSpacing: '-0.065em',
@@ -127,26 +80,23 @@ export default function Transformations() {
         animate={inView ? 'visible' : 'hidden'}
         variants={containerVariants}
       >
-        {transformations.map((transformation, idx) => (
+        {transformations.map((t) => (
           <motion.div
-            key={idx}
-            className="group relative overflow-hidden rounded-xl aspect-[3/4] bg-gradient-to-br from-white/10 to-black/50 border border-white/10 hover:border-white/20 transition-all"
+            key={t.id}
+            className="group relative overflow-hidden rounded-xl aspect-[3/4] border border-white/10 hover:border-white/20 transition-all"
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60 z-10" />
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300" />
-            
-            {/* Placeholder for image - before/after */}
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-white/5 to-black/40">
-              <div className="text-center">
-                <div className="text-5xl mb-2 opacity-40">💪</div>
-                <div className="text-xs text-white/40">Before & After</div>
-              </div>
-            </div>
-
+            <Image
+              src={t.src}
+              alt={t.result}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70 z-10" />
             <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-              <p className="text-sm text-white/90 font-semibold leading-tight">{transformation.result}</p>
+              <p className="text-sm text-white/90 font-semibold leading-tight">{t.result}</p>
             </div>
           </motion.div>
         ))}
@@ -164,3 +114,4 @@ export default function Transformations() {
       </motion.div>
     </section>
   )
+}

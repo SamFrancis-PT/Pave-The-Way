@@ -1,8 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
-import { useReducedMotion } from 'framer-motion'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -119,3 +118,4 @@ export default function Hero() {
       </div>
     </section>
   )
+}

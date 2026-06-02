@@ -1,23 +1,23 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 const featureCards = [
   {
-    tag: 'READINESS',
-    title: 'Know when to push',
-    description: 'Blend sleep, training load and recovery signals into a simple daily recommendation.',
+    tag: 'STRENGTH',
+    title: 'Build real muscle',
+    description: 'Evidence-based programming focused on progressive overload and long-term strength development.',
   },
   {
-    tag: 'RECOVERY',
-    title: 'Protect your baseline',
-    description: 'Spot early warning signs before stress becomes a setback.',
+    tag: 'NUTRITION',
+    title: 'Fuel your results',
+    description: 'Practical nutrition coaching that fits your lifestyle — no crash diets, no guesswork.',
   },
   {
-    tag: 'COACHING',
-    title: 'Plans that adapt',
-    description: 'Guidance shifts with your body, not an arbitrary calendar.',
+    tag: 'MINDSET',
+    title: 'Show up consistently',
+    description: 'Develop the discipline and habits that carry over into every area of your life.',
   },
 ]
 
@@ -42,15 +42,12 @@ const itemVariants = {
 }
 
 export default function Features() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
     <section
       ref={ref}
-      className="bg-dark-900 py-24 md:py-32 px-clamp(22px,5vw,72px)"
       style={{
         paddingLeft: 'clamp(22px, 5vw, 72px)',
         paddingRight: 'clamp(22px, 5vw, 72px)',
@@ -68,7 +65,7 @@ export default function Features() {
         animate={inView ? 'visible' : 'hidden'}
         variants={itemVariants}
       >
-        All your signals, turned into one clear next step.
+        Three pillars. One transformation.
       </motion.h2>
 
       <motion.div
@@ -80,18 +77,18 @@ export default function Features() {
         {featureCards.map((card, idx) => (
           <motion.div
             key={idx}
-            className="min-h-64 border border-white/10 rounded-3xl bg-gradient-to-b from-white/7 to-white/2 p-6 flex flex-col"
+            className="min-h-64 border border-white/10 rounded-3xl bg-gradient-to-b from-white/5 to-transparent p-6 flex flex-col"
             variants={itemVariants}
             whileHover={{ y: -4 }}
             transition={{ duration: 0.3 }}
           >
-            <span className="font-mono text-xs font-semibold tracking-wider text-accent-blue mb-8">
+            <span className="font-mono text-xs font-semibold tracking-wider text-white/50 mb-8">
               {card.tag}
             </span>
             <h3 className="text-2xl font-black tracking-tight mt-auto mb-3">
               {card.title}
             </h3>
-            <p className="text-sm leading-[1.55] text-text-dim">
+            <p className="text-sm leading-[1.55] text-white/60">
               {card.description}
             </p>
           </motion.div>

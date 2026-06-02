@@ -1,12 +1,17 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
 import Link from 'next/link'
 
-const navLinks = ['About', 'Services', 'Transformations', 'Contact']
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Transformations', href: '#transformations' },
+  { label: 'Contact', href: '#consultation' },
+]
 
 export default function Navigation() {
-  const [activeLink, setActiveLink] = motion.useState(0)
+  const [activeLink, setActiveLink] = useState(0)
 
   return (
     <nav className="relative z-50 h-20 flex items-center justify-between" style={{
@@ -24,8 +29,9 @@ export default function Navigation() {
       {/* Links - Hidden on mobile */}
       <div className="hidden md:flex gap-2 p-2 rounded-full bg-black/30 backdrop-blur-lg border border-white/10">
         {navLinks.map((link, idx) => (
-          <button
-            key={link}
+          <a
+            key={link.label}
+            href={link.href}
             onClick={() => setActiveLink(idx)}
             className={`text-xs px-3.5 py-2 rounded-full transition-all ${
               activeLink === idx
@@ -33,17 +39,20 @@ export default function Navigation() {
                 : 'text-white/70 hover:text-white'
             }`}
           >
-            {link}
-          </button>
+            {link.label}
+          </a>
         ))}
       </div>
 
       {/* CTA Button */}
-      <Link
-        href="#consultation"
+      <a
+        href="https://calendly.com/pavethewayfit/30min"
+        target="_blank"
+        rel="noopener noreferrer"
         className="px-6 py-3 text-xs rounded-full bg-white text-black font-semibold transition-all duration-300 hover:shadow-[0_0_34px_rgba(255,255,255,0.3)] hover:translate-y-[-2px]"
       >
         Book Consultation
-      </Link>
+      </a>
     </nav>
   )
+}

@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 const services = [
   {
@@ -74,10 +74,8 @@ const itemVariants = {
 }
 
 export default function Services() {
-  const { ref, inView } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  })
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
     <section
@@ -175,3 +173,4 @@ export default function Services() {
       </motion.div>
     </section>
   )
+}

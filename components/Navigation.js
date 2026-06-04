@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import Image from 'next/image'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -19,11 +19,15 @@ export default function Navigation() {
       paddingRight: 'clamp(22px, 5vw, 72px)',
     }}>
       {/* Brand */}
-      <div className="flex items-center gap-3">
-        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-          <span className="text-black font-black text-sm">PTW</span>
-        </div>
-        <div className="text-xl font-black tracking-tight">Pave The Way</div>
+      <div className="flex items-center">
+        <Image
+          src="/images/Pavetheway_Final_White.png"
+          alt="Pave The Way"
+          width={160}
+          height={60}
+          className="object-contain"
+          priority
+        />
       </div>
 
       {/* Links - Hidden on mobile */}

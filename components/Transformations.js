@@ -5,15 +5,38 @@ import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 
 const transformations = [
-  { id: 1, src: '/images/transformation-01.jpg', result: 'Significant muscle gain & body composition improvement' },
-  { id: 2, src: '/images/transformation-02.jpg', result: 'Impressive upper body development' },
-  { id: 3, src: '/images/transformation-03.jpg', result: 'Complete body transformation with visible muscle gain' },
-  { id: 4, src: '/images/transformation-04.jpg', result: 'Lean & defined physique achieved' },
-  { id: 5, src: '/images/transformation-05.jpg', result: 'Muscle development & fat loss success' },
-  { id: 6, src: '/images/transformation-06.jpg', result: 'Dramatic upper body transformation' },
-  { id: 7, src: '/images/transformation-07.jpg', result: 'Full-body muscle building results' },
-  { id: 8, src: '/images/transformation-08.jpg', result: 'Complete physique transformation' },
-  { id: 9, src: '/images/transformation-09.jpg', result: 'Exceptional muscle gain & definition' },
+  {
+    id: 1,
+    src: '/images/transformation-01.jpg',
+    title: 'Damo',
+    tag: 'FIT INTO HIS 50S',
+    result: 'Body recomposition — fat loss, muscle & lasting fitness habit.',
+    story: 'After 6 months of group fitness, Damo was ready to level up. With 3 weight sessions per week, a dialled-in diet, and a couch-to-5km running program, he didn\'t just look better — he found a passion that reshaped his entire life. He now trains consistently, eats well, and balances resistance training with cardio as a permanent lifestyle.',
+  },
+  {
+    id: 2,
+    src: '/images/transformation-02.jpg',
+    title: 'Jem',
+    tag: '16-WEEK TRANSFORMATION',
+    result: 'Dramatic recomposition — lean muscle built, body fat stripped.',
+    story: 'A focused 16-week dieting phase that completely reshaped Jem\'s physique. Training 5 days a week with strict discipline in the gym and the kitchen, Jem committed fully to the process — and the results speak for themselves.',
+  },
+  {
+    id: 3,
+    src: '/images/transformation-03.jpg',
+    title: 'Liam',
+    tag: '10-WEEK · FLAT TO FIT',
+    result: 'Lean muscle built, definition revealed — complete physique upgrade.',
+    story: 'In just 10 weeks Liam went from flat to genuinely fit through structured training and dialled-in nutrition.',
+  },
+  {
+    id: 4,
+    src: '/images/transformation-04.jpg',
+    title: 'John',
+    tag: '10-WEEK · FLAT TO FIT',
+    result: 'Six-pack revealed — exceptional definition and muscle separation achieved.',
+    story: '10 weeks of focused work produced jaw-dropping results. Proof of what\'s possible when you commit completely to the process.',
+  },
 ]
 
 const containerVariants = {
@@ -89,14 +112,17 @@ export default function Transformations() {
           >
             <Image
               src={t.src}
-              alt={t.result}
+              alt={t.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70 z-10" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
-              <p className="text-sm text-white/90 font-semibold leading-tight">{t.result}</p>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/90 z-10" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 z-20">
+              <span className="text-[10px] font-mono tracking-widest text-white/60 uppercase mb-1 block">{t.tag}</span>
+              <h3 className="text-xl font-black text-white mb-1">{t.title}</h3>
+              <p className="text-sm text-white/80 font-semibold mb-2 leading-snug">{t.result}</p>
+              <p className="text-xs text-white/55 leading-relaxed line-clamp-3">{t.story}</p>
             </div>
           </motion.div>
         ))}

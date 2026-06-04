@@ -32,8 +32,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large media — host on a CDN instead
-*.MOV
-*.mov
-*.mp4
-*.MP4
+# large media
+# (video/image assets committed directly — move to CDN if repo grows too large)

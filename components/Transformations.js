@@ -37,6 +37,22 @@ const transformations = [
     result: 'Six-pack revealed — exceptional definition and muscle separation achieved.',
     story: '10 weeks of focused work produced jaw-dropping results. Proof of what\'s possible when you commit completely to the process.',
   },
+  {
+    id: 5,
+    src: '/images/George B.jpg',
+    title: 'George B',
+    tag: 'BODY RECOMPOSITION',
+    result: 'Increased muscle mass, reduced body fat and visible abs year round.',
+    story: 'George came to me wanting the classic physique — six pack, well-proportioned upper body, the full package. His biggest challenge was balancing his social life with his training, knowing the weekends were holding back his progress. Once he committed to prioritising training and dialling in his nutrition, the changes came consistently. That momentum pushed him to train harder, lift heavier and show up with real intensity. What started as a goal is now George\'s new normal — increased muscle mass, reduced body fat, and visible abs year round.',
+  },
+  {
+    id: 6,
+    src: '/images/Andalib.JPG',
+    title: 'Andalib',
+    tag: 'LIFESTYLE TRANSFORMATION',
+    result: 'Muscle gained, body fat lost and energy levels transformed.',
+    story: 'Andalib came to me as a busy father of two running his own business — training had slipped down the priority list and he was feeling weak, low on energy and disconnected from his health. We started with two full body sessions a week and locked in his nutrition using an intermittent fasting protocol, ensuring he hit high protein targets to support muscle growth and recovery. As the progress came, so did the momentum. Andalib built real strength, shed body fat and gained the energy he had been missing. What started as getting back to basics has since expanded beyond the gym — Andalib now trains jiu-jitsu, a testament to what happens when fitness becomes a lifestyle again.',
+  },
 ]
 
 const containerVariants = {

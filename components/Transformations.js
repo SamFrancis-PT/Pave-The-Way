@@ -47,7 +47,7 @@ const transformations = [
   },
   {
     id: 6,
-    src: '/images/George_B.jpg',
+    src: '/images/George B.jpg',
     title: 'George B',
     tag: 'BODY RECOMPOSITION',
     result: 'Increased muscle mass, reduced body fat and visible abs year round.',

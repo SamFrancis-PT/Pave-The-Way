@@ -27,7 +27,7 @@ export default function CTA() {
     >
       {/* Watermark logo */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="relative w-[120%] max-w-5xl aspect-[3/1]" style={{ opacity: 0.06 }}>
+        <div className="relative w-[120%] max-w-5xl aspect-[3/1]" style={{ opacity: 0.15 }}>
           <Image
             src="/images/Pavetheway_Final_White.png"
             alt=""

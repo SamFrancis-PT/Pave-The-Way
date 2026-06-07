@@ -73,7 +73,7 @@ export default function About() {
         >
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
             <Image
-              src="/images/IMG_4489.JPG"
+              src="/images/About me colour.JPG"
               alt="Sam Francis personal training — colour"
               fill
               className="object-cover"
@@ -82,7 +82,7 @@ export default function About() {
           </div>
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
             <Image
-              src="/images/IMG_4498.JPG"
+              src="/images/About me black:White.JPG"
               alt="Sam Francis personal training — black and white"
               fill
               className="object-cover"

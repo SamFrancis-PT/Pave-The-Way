@@ -39,7 +39,7 @@ export default function CTA() {
         </h2>
 
         <p className="text-lg text-white/70 mb-8 leading-relaxed">
-          Schedule your free consultation call with Sam. We'll discuss your goals, answer any questions, and create a personalized plan to pave your way to a stronger body and mind.
+          Schedule your free consultation call with Sam. We'll discuss your goals, answer any questions, and create a personalised plan to pave your way to a stronger body and mind.
         </p>
 
         <motion.div

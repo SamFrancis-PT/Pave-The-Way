@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 
 const itemVariants = {
@@ -56,11 +57,38 @@ export default function About() {
             The discipline you develop in the gym flows into your career, relationships, and mental resilience. The consistency required to build muscle teaches you how to show up for yourself. This is the philosophy behind <strong>Pave The Way</strong>.
           </p>
           <p>
-            I specialize in working with busy professionals and dedicated men aged 35-50 who are ready to take their health seriously. Whether you're new to structured training or looking to level up, I remove the guesswork and provide expert guidance on how to approach strength training optimally for muscle building.
+            I specialise in working with busy professionals and dedicated men who are ready to take their health and fitness seriously. I am here to empower you to build a better more confident version of yourself that is physically capable, mentally sharp, and disciplined. Whether you're new to structured training or looking to level up, I remove the guesswork and provide expert guidance on how to approach strength training optimally for muscle building.
           </p>
           <p className="text-white font-semibold text-xl mt-8">
             <strong>Strong Body | Strong Mind</strong>
           </p>
+        </motion.div>
+
+        {/* Trainer photos */}
+        <motion.div
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          variants={itemVariants}
+          className="grid grid-cols-2 gap-4 mt-12"
+        >
+          <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+            <Image
+              src="/images/IMG_4489.JPG"
+              alt="Sam Francis personal training — colour"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+          </div>
+          <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+            <Image
+              src="/images/IMG_4498.JPG"
+              alt="Sam Francis personal training — black and white"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

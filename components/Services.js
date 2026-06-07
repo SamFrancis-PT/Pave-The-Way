@@ -7,10 +7,10 @@ const services = [
   {
     title: '1-on-1 Personal Training',
     price: '$100/week',
-    description: 'In-person coaching with expert form correction and personalized guidance.',
+    description: 'In-person coaching with expert form correction and personalised guidance.',
     features: [
       'Weekly in-person PT session',
-      'Customized training programs',
+      'Customised training programmes',
       'Pave The Way app access',
       'Nutritional guidance included',
       'Progress tracking & photos',
@@ -40,7 +40,7 @@ const services = [
 const appFeatures = [
   {
     title: 'Exercise Videos',
-    description: 'Detailed video demonstrations for every exercise in your program.',
+    description: 'Detailed video demonstrations for every exercise in your programme.',
   },
   {
     title: 'Progress Tracking',
@@ -52,7 +52,15 @@ const appFeatures = [
   },
   {
     title: 'Nutrition Guidance',
-    description: 'Integrated nutrition coaching to optimize your results.',
+    description: 'Integrated nutrition coaching to optimise your results.',
+  },
+  {
+    title: 'Accountability',
+    description: 'Stay on track with built-in accountability tools to keep you consistent.',
+  },
+  {
+    title: 'In-App Feedback',
+    description: 'Receive direct feedback on your training from Sam to ensure you are always progressing.',
   },
 ]
 
@@ -111,7 +119,7 @@ export default function Services() {
         animate={inView ? 'visible' : 'hidden'}
         variants={itemVariants}
       >
-        Choose the coaching style that fits your lifestyle. Both programs include access to the Pave The Way app with exercise videos, nutrition guidance, and progress tracking.
+        Choose the coaching style that fits your lifestyle. Both programmes include access to the Pave The Way app with exercise videos, nutrition guidance, and progress tracking.
       </motion.p>
 
       <motion.div
@@ -161,7 +169,7 @@ export default function Services() {
         className="mb-12"
       >
         <h3 className="text-3xl font-black mb-8">Pave The Way App Features</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {appFeatures.map((feature, idx) => (
             <motion.div
               key={idx}

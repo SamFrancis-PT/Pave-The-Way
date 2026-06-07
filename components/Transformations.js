@@ -7,7 +7,7 @@ import { motion, useInView } from 'framer-motion'
 const transformations = [
   {
     id: 1,
-    src: '/images/transformation-01.jpg',
+    src: '/images/Damo.jpg',
     title: 'Damo',
     tag: 'FIT INTO HIS 50S',
     result: 'Body recomposition — fat loss, muscle & lasting fitness habit.',
@@ -15,7 +15,7 @@ const transformations = [
   },
   {
     id: 2,
-    src: '/images/transformation-02.jpg',
+    src: '/images/Jem.jpg',
     title: 'Jem',
     tag: '16-WEEK TRANSFORMATION',
     result: 'Dramatic recomposition — lean muscle built, body fat stripped.',
@@ -23,7 +23,7 @@ const transformations = [
   },
   {
     id: 3,
-    src: '/images/transformation-03.jpg',
+    src: '/images/Liam.jpg',
     title: 'Liam',
     tag: '10-WEEK · FLAT TO FIT',
     result: 'Lean muscle built, definition revealed — complete physique upgrade.',
@@ -31,7 +31,7 @@ const transformations = [
   },
   {
     id: 4,
-    src: '/images/transformation-04.jpg',
+    src: '/images/John.jpg',
     title: 'John',
     tag: '10-WEEK · FLAT TO FIT',
     result: 'Six-pack revealed — exceptional definition and muscle separation achieved.',
@@ -39,6 +39,14 @@ const transformations = [
   },
   {
     id: 5,
+    src: '/images/Tyler.jpg',
+    title: 'Tyler',
+    tag: 'TRANSFORMATION',
+    result: 'Strength built, body composition improved.',
+    story: '',
+  },
+  {
+    id: 6,
     src: '/images/George B.jpg',
     title: 'George B',
     tag: 'BODY RECOMPOSITION',
@@ -46,7 +54,7 @@ const transformations = [
     story: 'George came to me wanting the classic physique — six pack, well-proportioned upper body, the full package. His biggest challenge was balancing his social life with his training, knowing the weekends were holding back his progress. Once he committed to prioritising training and dialling in his nutrition, the changes came consistently. That momentum pushed him to train harder, lift heavier and show up with real intensity. What started as a goal is now George\'s new normal — increased muscle mass, reduced body fat, and visible abs year round.',
   },
   {
-    id: 6,
+    id: 7,
     src: '/images/Andalib.JPG',
     title: 'Andalib',
     tag: 'LIFESTYLE TRANSFORMATION',

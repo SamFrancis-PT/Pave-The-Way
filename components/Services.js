@@ -17,6 +17,7 @@ const services = [
       'Personal best notifications',
     ],
     highlight: true,
+    url: 'https://www.trainerize.me/profile/francisfit/?planGUID=de81efb4d16f4b729760a146eed6726e',
   },
   {
     title: 'Online Program',
@@ -34,6 +35,7 @@ const services = [
       'Direct feedback on your training',
     ],
     highlight: false,
+    url: 'https://www.trainerize.me/profile/francisfit/?planGUID=5d2767f1cb5a46e29a535e7a882a81ef',
   },
 ]
 
@@ -154,9 +156,14 @@ export default function Services() {
               ))}
             </ul>
 
-            <button className="w-full py-3 rounded-lg bg-white text-black font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]">
+            <a
+              href={service.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full py-3 rounded-lg bg-white text-black font-semibold text-sm text-center transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]"
+            >
               Get Started
-            </button>
+            </a>
           </motion.div>
         ))}
       </motion.div>

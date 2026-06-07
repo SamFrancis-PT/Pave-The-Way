@@ -1,8 +1,8 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 const transformations = [
   {
@@ -123,25 +123,101 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.08, delayChildren: 0.2 },
   },
 }
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6 },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+}
+
+function Modal({ t, onClose }) {
+  // Close on Escape key
+  useEffect(() => {
+    function onKey(e) { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [onClose])
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-black/85 backdrop-blur-sm"
+        onClick={onClose}
+      />
+
+      {/* Panel */}
+      <motion.div
+        className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/15 bg-[#0f0f0f] flex flex-col md:flex-row"
+        initial={{ scale: 0.94, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.94, opacity: 0, y: 20 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
+      >
+        {/* Image */}
+        <div className="relative w-full md:w-2/5 aspect-[3/4] flex-shrink-0">
+          <Image
+            src={t.src}
+            alt={t.title}
+            fill
+            className="object-cover rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none"
+            sizes="(max-width: 768px) 100vw, 40vw"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col justify-center p-7 md:p-10 gap-4">
+          <span className="text-[10px] font-mono tracking-widest text-white/50 uppercase">{t.tag}</span>
+          <h2 className="text-3xl font-black text-white leading-tight">{t.title}</h2>
+          {t.result && (
+            <p className="text-base text-white/80 font-semibold leading-snug">{t.result}</p>
+          )}
+          {t.story && (
+            <p className="text-sm text-white/60 leading-relaxed">{t.story}</p>
+          )}
+          {!t.result && !t.story && (
+            <p className="text-sm text-white/40 italic">Story coming soon.</p>
+          )}
+
+          <button
+            onClick={onClose}
+            className="mt-4 self-start px-6 py-2.5 rounded-full border border-white/20 text-white/70 text-sm hover:border-white/40 hover:text-white transition-all"
+          >
+            Close
+          </button>
+        </div>
+
+        {/* X button */}
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-black/50 border border-white/10 text-white/60 hover:text-white hover:border-white/30 transition-all"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </motion.div>
+    </motion.div>
+  )
 }
 
 export default function Transformations() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.1 })
+  const [selected, setSelected] = useState(null)
 
   return (
     <section
@@ -157,10 +233,7 @@ export default function Transformations() {
     >
       <motion.h2
         className="font-black leading-[0.9] tracking-tight mb-4 max-w-4xl"
-        style={{
-          fontSize: 'clamp(36px, 6vw, 72px)',
-          letterSpacing: '-0.065em',
-        }}
+        style={{ fontSize: 'clamp(36px, 6vw, 72px)', letterSpacing: '-0.065em' }}
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
         variants={itemVariants}
@@ -174,7 +247,7 @@ export default function Transformations() {
         animate={inView ? 'visible' : 'hidden'}
         variants={itemVariants}
       >
-        See the transformations of clients who committed to their goals and trusted the process. These are the results of proper training, nutrition, and mindset.
+        See the transformations of clients who committed to their goals and trusted the process. Click any card to read their full story.
       </motion.p>
 
       <motion.div
@@ -184,11 +257,13 @@ export default function Transformations() {
         variants={containerVariants}
       >
         {transformations.map((t) => (
-          <motion.div
+          <motion.button
             key={t.id}
-            className="group relative overflow-hidden rounded-xl aspect-[3/4] border border-white/10 hover:border-white/20 transition-all"
+            className="group relative overflow-hidden rounded-xl aspect-[3/4] border border-white/10 hover:border-white/30 transition-all text-left cursor-pointer w-full"
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
+            onClick={() => setSelected(t)}
+            aria-label={`View ${t.title}'s transformation`}
           >
             <Image
               src={t.src}
@@ -202,9 +277,15 @@ export default function Transformations() {
               <span className="text-[10px] font-mono tracking-widest text-white/60 uppercase mb-1 block">{t.tag}</span>
               <h3 className="text-xl font-black text-white mb-1">{t.title}</h3>
               <p className="text-sm text-white/80 font-semibold mb-2 leading-snug">{t.result}</p>
-              <p className="text-xs text-white/55 leading-relaxed line-clamp-3">{t.story}</p>
+              <p className="text-xs text-white/55 leading-relaxed line-clamp-2">{t.story}</p>
             </div>
-          </motion.div>
+            {/* Read more hint */}
+            <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
+              <span className="text-[10px] font-mono tracking-wider text-white/80 bg-black/50 px-2 py-1 rounded-full border border-white/20">
+                Read more
+              </span>
+            </div>
+          </motion.button>
         ))}
       </motion.div>
 
@@ -218,6 +299,11 @@ export default function Transformations() {
           These are just some of the 100s of transformations I've helped create. <strong>Your transformation starts here.</strong>
         </p>
       </motion.div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selected && <Modal t={selected} onClose={() => setSelected(null)} />}
+      </AnimatePresence>
     </section>
   )
 }

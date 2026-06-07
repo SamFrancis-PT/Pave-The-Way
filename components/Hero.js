@@ -92,7 +92,7 @@ export default function Hero() {
             variants={shouldReduceMotion ? {} : itemVariants}
             className="max-w-xl text-lg text-white/70 leading-[1.65] mb-8"
           >
-            Build a stronger body and stronger mind through expert 1-on-1 coaching. Designed for ambitious men aged 35-50 ready to transform their lives through strength training, nutrition, and routined discipline.
+            Build a stronger body and stronger mind through expert 1-on-1 coaching. Designed for ambitious men ready to transform their lives through strength training, nutrition, and routined discipline.
           </motion.p>
 
           {/* CTAs */}

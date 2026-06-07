@@ -1,7 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -16,7 +17,7 @@ export default function CTA() {
   return (
     <section
       id="consultation"
-      className="relative min-h-[500px] flex items-center justify-center bg-gradient-to-b from-black to-black/50"
+      className="relative overflow-hidden flex items-center justify-center bg-gradient-to-b from-black to-black/50"
       style={{
         paddingLeft: 'clamp(22px, 5vw, 72px)',
         paddingRight: 'clamp(22px, 5vw, 72px)',
@@ -24,17 +25,31 @@ export default function CTA() {
         paddingBottom: 'clamp(80px, 10vw, 140px)',
       }}
     >
+      {/* Watermark logo */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div className="relative w-[120%] max-w-5xl aspect-[3/1]" style={{ opacity: 0.06 }}>
+          <Image
+            src="/images/Pavetheway_Final_White.png"
+            alt=""
+            fill
+            className="object-contain"
+            sizes="100vw"
+            aria-hidden
+          />
+        </div>
+      </div>
+
       <motion.div
-        className="max-w-3xl text-center"
+        className="relative z-10 max-w-3xl text-center"
         variants={itemVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] tracking-tight mb-6" style={{
-          fontSize: 'clamp(36px, 6vw, 72px)',
-          letterSpacing: '-0.065em',
-        }}>
+        <h2
+          className="font-black leading-[0.9] tracking-tight mb-6"
+          style={{ fontSize: 'clamp(36px, 6vw, 72px)', letterSpacing: '-0.065em' }}
+        >
           Ready to Transform?
         </h2>
 
@@ -62,12 +77,12 @@ export default function CTA() {
           </Link>
         </motion.div>
 
-        {/* Footer Info */}
+        {/* Footer */}
         <motion.div
-          className="mt-16 pt-8 border-t border-white/10 text-white/60 text-sm"
+          className="mt-16 pt-8 border-t border-white/10 text-white/40 text-sm"
           variants={itemVariants}
         >
-          <p className="mb-4">Sam Francis | Personal Trainer | 10+ Years Experience</p>
+          <p className="mb-2">Sam Francis | Personal Trainer | 10+ Years Experience</p>
           <p>Helping busy professionals build stronger bodies and stronger minds</p>
         </motion.div>
       </motion.div>

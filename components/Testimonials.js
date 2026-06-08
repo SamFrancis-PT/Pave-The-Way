@@ -107,7 +107,7 @@ export default function Testimonials() {
               </div>
               <div>
                 <div className="font-black text-white">{t.name}</div>
-                <div className="text-xs text-white/40 font-mono tracking-widest uppercase">Pave The Way Client</div>
+                <div className="text-xs text-white/40 font-mono tracking-widest uppercase">PT Client</div>
               </div>
             </div>
           </motion.div>

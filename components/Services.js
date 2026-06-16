@@ -37,6 +37,26 @@ const services = [
     highlight: false,
     url: 'https://www.trainerize.me/profile/francisfit/?planGUID=5d2767f1cb5a46e29a535e7a882a81ef',
   },
+  {
+    title: 'The 12 Week Comeback Blueprint',
+    price: '$199',
+    tag: 'Best Value · Save 40%',
+    description: 'The exact programme that built every transformation you see on this page. One payment, zero guesswork. Twelve weeks of progressive training and nutrition designed to challenge you block by block — building volume, strength and discipline as you go.',
+    features: [
+      'Fully customised 12 week progressive training programme',
+      'Structured to build volume, intensity and training days across each block',
+      'Sessions 45 to 60 minutes — built for busy professionals',
+      'Pave The Way app access with exercise video library',
+      'Nutritional guidance and high protein framework',
+      'Progress tracking and personal bests',
+      'In-app feedback from Sam',
+      'Accountability tools throughout the 12 weeks',
+    ],
+    savingsNote: 'Save 40% compared to the weekly rate — that is $136 off',
+    bestValue: true,
+    ctaText: 'Start Your 12 Weeks',
+    url: 'https://calendly.com/pavethewayfit/30min',
+  },
 ]
 
 const appFeatures = [
@@ -121,11 +141,11 @@ export default function Services() {
         animate={inView ? 'visible' : 'hidden'}
         variants={itemVariants}
       >
-        Choose the coaching style that fits your lifestyle. Both programmes include access to the Pave The Way app with exercise videos, nutrition guidance, and progress tracking.
+        Choose the coaching style that fits your lifestyle. All programmes include access to the Pave The Way app with exercise videos, nutrition guidance, and progress tracking.
       </motion.p>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20"
         initial="hidden"
         animate={inView ? 'visible' : 'hidden'}
         variants={containerVariants}
@@ -133,21 +153,34 @@ export default function Services() {
         {services.map((service, idx) => (
           <motion.div
             key={idx}
-            className={`rounded-2xl p-8 border transition-all duration-300 ${
-              service.highlight
-                ? 'border-white/30 bg-white/8 backdrop-blur-sm scale-105 md:scale-100'
+            className={`relative rounded-2xl p-8 border transition-all duration-300 ${
+              service.bestValue
+                ? 'border-amber-400/60 bg-white/8 backdrop-blur-sm'
+                : service.highlight
+                ? 'border-white/30 bg-white/8 backdrop-blur-sm'
                 : 'border-white/10 bg-white/3'
             }`}
+            style={
+              service.bestValue
+                ? { boxShadow: '0 0 0 1px rgba(251,191,36,0.2), 0 8px 32px rgba(251,191,36,0.08)' }
+                : undefined
+            }
             variants={itemVariants}
             whileHover={{ y: -4 }}
           >
+            {service.tag && (
+              <div className="inline-block mb-4 px-3 py-1 rounded-full text-xs font-bold tracking-wide bg-amber-400/15 text-amber-300 border border-amber-400/30">
+                {service.tag}
+              </div>
+            )}
+
             <div className="mb-6">
               <h3 className="text-2xl md:text-3xl font-black mb-2">{service.title}</h3>
               <div className="text-3xl font-black text-white mb-3">{service.price}</div>
               <p className="text-white/60">{service.description}</p>
             </div>
 
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-6">
               {service.features.map((feature, fidx) => (
                 <li key={fidx} className="flex gap-3 text-sm text-white/80">
                   <span className="text-white/60">✓</span>
@@ -156,13 +189,23 @@ export default function Services() {
               ))}
             </ul>
 
+            {service.savingsNote && (
+              <p className="text-sm font-semibold text-amber-300/90 mb-6 border-t border-amber-400/20 pt-4">
+                {service.savingsNote}
+              </p>
+            )}
+
             <a
               href={service.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full py-3 rounded-lg bg-white text-black font-semibold text-sm text-center transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]"
+              className={`block w-full py-3 rounded-lg font-semibold text-sm text-center transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] ${
+                service.bestValue
+                  ? 'bg-amber-400 text-black hover:bg-amber-300'
+                  : 'bg-white text-black'
+              }`}
             >
-              Get Started
+              {service.ctaText || 'Get Started'}
             </a>
           </motion.div>
         ))}

@@ -41,7 +41,7 @@ const services = [
     title: 'The 12 Week Comeback Blueprint',
     price: '$199',
     tag: 'Best Value · Save 40%',
-    description: 'The exact programme that built every transformation you see on this page. One payment, zero guesswork. Twelve weeks of progressive training and nutrition designed to challenge you block by block — building volume, strength and discipline as you go.',
+    description: 'Your starting point. Built on the same programming methods that produced every transformation you see on this page. Remove the guesswork, try the Pave The Way app and commit to 12 weeks across four progressive blocks — each one building on the last. This is where foundations are built and journeys begin.',
     features: [
       'Fully customised 12 week progressive training programme',
       'Structured to build volume, intensity and training days across each block',

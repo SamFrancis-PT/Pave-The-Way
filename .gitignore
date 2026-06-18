@@ -34,3 +34,6 @@ next-env.d.ts
 
 # large media
 # (video/image assets committed directly — move to CDN if repo grows too large)
+*.mov
+*.MOV
+*.HEIC

@@ -111,32 +111,100 @@ export default function SpotlightPage() {
       {/* ── Hero ── */}
       <section
         className="relative overflow-hidden text-center"
-        style={{ ...PX, paddingTop: 'clamp(72px, 12vw, 160px)', paddingBottom: 'clamp(72px, 12vw, 160px)' }}
+        style={{ ...PX, paddingTop: 'clamp(72px, 12vw, 160px)', paddingBottom: 'clamp(72px, 12vw, 160px)', minHeight: '100vh', background: '#000' }}
       >
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-white/[0.022] blur-[130px]" />
+        <style>{`
+          @keyframes hudPulse {
+            0%, 100% { opacity: 0.12; }
+            50% { opacity: 0.28; }
+          }
+        `}</style>
+
+        {/* Background image */}
+        <Image
+          src="/images/IMG_4492.JPG"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+          style={{ filter: 'brightness(0.55) contrast(1.1)' }}
+        />
+
+        {/* Scanline grid overlay */}
+        <div style={{
+          background: 'repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 64px), repeating-linear-gradient(90deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 64px)',
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 1,
+        }} />
+
+        {/* Gradient overlay */}
+        <div style={{
+          background: 'linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 35%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.9) 100%)',
+          position: 'absolute',
+          inset: 0,
+          zIndex: 2,
+        }} />
+
+        {/* Radial vignette */}
+        <div style={{
+          background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%)',
+          position: 'absolute',
+          inset: 0,
+          zIndex: 2,
+        }} />
+
+        {/* Pulsing top border line */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '1px',
+          background: 'rgba(247,247,239,0.15)',
+          zIndex: 5,
+          animation: 'hudPulse 4s ease-in-out infinite',
+        }} />
+
+        {/* HUD corner labels */}
+        <div style={{ position: 'absolute', top: '28px', left: 'clamp(24px,5vw,72px)', fontFamily: "'IBM Plex Mono', monospace", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(247,247,239,0.35)', zIndex: 5 }}>
+          Client Spotlight · Pave The Way
+        </div>
+        <div style={{ position: 'absolute', top: '28px', right: 'clamp(24px,5vw,72px)', fontFamily: "'IBM Plex Mono', monospace", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(247,247,239,0.35)', zIndex: 5 }}>
+          Est. 2014 · Sydney, Australia
+        </div>
+        <div style={{ position: 'absolute', bottom: '80px', left: 'clamp(24px,5vw,72px)', fontFamily: "'IBM Plex Mono', monospace", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(247,247,239,0.35)', zIndex: 5 }}>
+          Strong Body · Strong Mind
+        </div>
+        <div style={{ position: 'absolute', bottom: '80px', right: 'clamp(24px,5vw,72px)', fontFamily: "'IBM Plex Mono', monospace", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(247,247,239,0.35)', zIndex: 5 }}>
+          Sam Francis · Head Coach
         </div>
 
-        <FadeUp>
-          <p className="font-mono text-xs tracking-[0.25em] uppercase text-white/35 mb-6">
-            Client Spotlight
-          </p>
-        </FadeUp>
+        {/* Hero text — sits above all overlays */}
+        <div className="relative" style={{ zIndex: 6 }}>
+          <FadeUp>
+            <p className="font-mono text-xs tracking-[0.25em] uppercase text-white/35 mb-6">
+              Client Spotlight
+            </p>
+          </FadeUp>
 
-        <FadeUp delay={0.1}>
-          <h1
-            className="font-black leading-[0.88] mx-auto mb-8"
-            style={{ fontSize: 'clamp(60px, 11vw, 148px)', letterSpacing: '-0.06em', maxWidth: '14ch' }}
-          >
-            Fit into their 50s
-          </h1>
-        </FadeUp>
+          <FadeUp delay={0.1}>
+            <h1
+              className="font-black leading-[0.88] mx-auto mb-8"
+              style={{ fontSize: 'clamp(60px, 11vw, 148px)', letterSpacing: '-0.06em', maxWidth: '14ch' }}
+            >
+              Fit into their 50s
+            </h1>
+          </FadeUp>
 
-        <FadeUp delay={0.2}>
-          <p className="text-lg md:text-xl text-white/55 leading-relaxed max-w-xl mx-auto">
-            Two men. Two journeys. One decision that changed everything. This is what showing up, week after week, actually looks like.
-          </p>
-        </FadeUp>
+          <FadeUp delay={0.2}>
+            <p className="text-lg md:text-xl text-white/55 leading-relaxed max-w-xl mx-auto">
+              Two men. Two journeys. One decision that changed everything. This is what showing up, week after week, actually looks like.
+            </p>
+          </FadeUp>
+        </div>
       </section>
 
       {/* ── Intro statement ── */}
@@ -186,7 +254,7 @@ export default function SpotlightPage() {
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
             <PhotoLabel label="Before" />
             <Image
-              src="/images/Damo%20before%20PT.PNG"
+              src="/images/Damo before PT.PNG"
               alt="Damo before transformation"
               fill
               className="object-cover"
@@ -210,7 +278,7 @@ export default function SpotlightPage() {
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden order-1 md:order-2">
             <PhotoLabel label="Now" />
             <Image
-              src="/images/Damo%20spotlight%20after.jpg"
+              src="/images/Damo spotlight after.jpg"
               alt="Damo after transformation"
               fill
               className="object-cover"
@@ -229,7 +297,7 @@ export default function SpotlightPage() {
             loop
             playsInline
           >
-            <source src="/Damo%20chest%20press.mov" type="video/quicktime" />
+            <source src="/Damo chest press.mov" type="video/quicktime" />
           </video>
           <div className="absolute inset-0 bg-black/10 pointer-events-none" />
           <CoachButton videoKey="damoChest" activeVideo={activeVideo} onToggle={toggleCoach} />
@@ -300,7 +368,7 @@ export default function SpotlightPage() {
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
             <PhotoLabel label="Before" />
             <img
-              src="/images/Paul%20before%20PT.JPG"
+              src="/images/Paul before PT.JPG"
               alt="Paul before transformation"
               style={{
                 position: 'absolute',
@@ -335,7 +403,7 @@ export default function SpotlightPage() {
               loop
               playsInline
             >
-              <source src="/Paul%20Shoulder%20press.mov" type="video/quicktime" />
+              <source src="/Paul Shoulder press.mov" type="video/quicktime" />
             </video>
             <div className="absolute inset-0 bg-black/10 pointer-events-none" />
             <CoachButton videoKey="paulShoulder" activeVideo={activeVideo} onToggle={toggleCoach} />
@@ -353,7 +421,7 @@ export default function SpotlightPage() {
               loop
               playsInline
             >
-              <source src="/Paul%20Deadlift.mov" type="video/quicktime" />
+              <source src="/Paul Deadlift.mov" type="video/quicktime" />
             </video>
             <div className="absolute inset-0 bg-black/10 pointer-events-none" />
             <CoachButton videoKey="paulDeadlift" activeVideo={activeVideo} onToggle={toggleCoach} />

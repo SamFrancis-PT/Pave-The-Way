@@ -297,7 +297,7 @@ export default function SpotlightPage() {
             loop
             playsInline
           >
-            <source src="/Damo chest press.mov" type="video/quicktime" />
+            <source src="/Damo_chest_press.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/10 pointer-events-none" />
           <CoachButton videoKey="damoChest" activeVideo={activeVideo} onToggle={toggleCoach} />

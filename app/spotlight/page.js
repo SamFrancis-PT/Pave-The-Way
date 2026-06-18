@@ -263,7 +263,7 @@ export default function SpotlightPage() {
           </div>
           <div className="flex flex-col justify-center md:pt-10">
             <p className="text-base md:text-lg text-white/60 leading-[1.8]">
-              Damo knew something had to change. Post-covid weight had crept on and his body no longer reflected how he felt inside. He had been active in his younger years but somewhere along the way, between work and life, he had lost the habit and the drive to prioritise himself. He reached out to Sam with no real expectations. He wanted to give it a few months and see how it went. Sam told him on that first call that he thought he would love it and want to do more. He was right. Once the results started coming, the months flew by. What began as two or three sessions a week grew into a complete lifestyle shift. A dialled-in diet and a genuine love for living well. Damo has not looked back since.
+              Damo knew something had to change. Post-covid weight had crept on and his body no longer reflected how he felt inside. He'd been active in his younger years, but somewhere along the way, between work and life, he'd lost the habit and the drive to prioritise himself. He reached out to me with no real expectations. He wanted to give it a few months and see how it went. I told him on that first call that I thought he'd love it and want to do more. I was right. Once the results started coming, the months flew by. What began as two or three sessions a week grew into a complete lifestyle shift, a dialled-in diet and a genuine love for living well. Damo hasn't looked back since.
             </p>
           </div>
         </FadeUp>
@@ -272,7 +272,7 @@ export default function SpotlightPage() {
         <FadeUp className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-start mb-10 md:mb-14">
           <div className="flex flex-col justify-center order-2 md:order-1 md:pt-10">
             <p className="text-base md:text-lg text-white/60 leading-[1.8]">
-              Eighteen months on, Damo trains five days a week. Three weight sessions with Sam and two cardio sessions on his own. Training is no longer something he fits around life. It is part of it. What I love about working with Damo is watching how he embraces the hard moments. He does not shy away from the discomfort. He has learned to welcome it. That shift in mindset is what separates people who transform from people who just try.
+              Eighteen months on, Damo trains five days a week. Three weight sessions with me and two cardio sessions on his own. Training is no longer something he fits around life. It's part of it. What I love about working with Damo is watching how he embraces the hard moments. He doesn't shy away from the discomfort, he's learned to welcome it. That shift in mindset is what separates people who transform from people who just try.
             </p>
           </div>
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden order-1 md:order-2">
@@ -383,7 +383,7 @@ export default function SpotlightPage() {
           </div>
           <div className="flex flex-col justify-center md:pt-10">
             <p className="text-base md:text-lg text-white/60 leading-[1.8]">
-              Paul started training with Sam in August 2024 for a reason that had nothing to do with aesthetics. He had watched his father age badly. Frail, weak, unable to do simple things on his own. That image stayed with him and eventually became the reason he picked up the phone. He came in as a complete beginner. Stiff, achey and unsure of himself in the gym. Sam's focus from day one was technique. Learning to move properly before anything else. Paul committed to two sessions a week and never missed one. He would often go home and practise the movements Sam had shown him. The progress came slowly at first and then all at once. His body composition changed, his strength shot up and the movements that had once felt impossible became second nature. He cleaned up his diet, cut back on alcohol and arrived at every session ready to work. The sessions never got easier. He never asked them to.
+              Paul started training with me in August 2024 for a reason that had nothing to do with aesthetics. He'd watched his father age badly, becoming frail, weak and unable to do simple things on his own. That image stayed with him and eventually became the reason he picked up the phone. He came in as a complete beginner, stiff, achey and unsure of himself in the gym. My focus from day one was technique, learning to move properly before anything else. Paul committed to two sessions a week and never missed one. He'd often go home and practise the movements I'd shown him. The progress came slowly at first and then all at once. His body composition changed, his strength shot up and the movements that had once felt impossible became second nature. He cleaned up his diet, cut back on alcohol and arrived at every session ready to work. The sessions never got easier. He never asked them to.
             </p>
           </div>
         </FadeUp>

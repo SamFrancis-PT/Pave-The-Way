@@ -127,8 +127,8 @@ export default function SpotlightPage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-top"
-          style={{ filter: 'brightness(0.55) contrast(1.1)' }}
+          className="object-cover"
+          style={{ filter: 'brightness(0.55) contrast(1.1)', objectPosition: '50% 22%' }}
         />
 
         {/* Scanline grid overlay */}
@@ -262,7 +262,7 @@ export default function SpotlightPage() {
             />
           </div>
           <div className="flex flex-col justify-center md:pt-10">
-            <p className="text-base md:text-lg text-white/60 leading-[1.8]">
+            <p className="drop-cap text-base md:text-lg text-white/60 leading-[1.8]">
               Damo knew something had to change. Post-covid weight had crept on and his body no longer reflected how he felt inside. He'd been active in his younger years, but somewhere along the way, between work and life, he'd lost the habit and the drive to prioritise himself. He reached out to me with no real expectations. He wanted to give it a few months and see how it went. I told him on that first call that I thought he'd love it and want to do more. I was right. Once the results started coming, the months flew by. What began as two or three sessions a week grew into a complete lifestyle shift, a dialled-in diet and a genuine love for living well. Damo hasn't looked back since.
             </p>
           </div>
@@ -288,7 +288,8 @@ export default function SpotlightPage() {
         </FadeUp>
 
         {/* Damo video — full width */}
-        <FadeUp className="relative rounded-2xl overflow-hidden mb-10 md:mb-14" style={{ height: 'clamp(420px, 65vh, 760px)' }}>
+        <FadeUp className="mb-10 md:mb-14">
+          <div className="relative rounded-2xl overflow-hidden" style={{ height: 'clamp(420px, 65vh, 760px)' }}>
           <video
             ref={damoChestRef}
             className="absolute inset-0 w-full h-full object-cover"
@@ -301,13 +302,14 @@ export default function SpotlightPage() {
           </video>
           <div className="absolute inset-0 bg-black/10 pointer-events-none" />
           <CoachButton videoKey="damoChest" activeVideo={activeVideo} onToggle={toggleCoach} />
+          </div>
         </FadeUp>
 
         {/* Damo pull quote */}
         <FadeUp
           className="pb-20 md:pb-28"
         >
-          <blockquote className="border-l-2 border-white/15 pl-8 max-w-3xl">
+          <blockquote className="pull-quote border-l-2 border-white/15 pl-8 max-w-3xl">
             <p
               className="font-black leading-snug mb-5 text-white/85"
               style={{ fontSize: 'clamp(20px, 2.8vw, 34px)', letterSpacing: '-0.03em' }}
@@ -367,22 +369,16 @@ export default function SpotlightPage() {
         <FadeUp className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-start mb-10 md:mb-14">
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
             <PhotoLabel label="Before" />
-            <img
+            <Image
               src="/images/Paul_before_PT.JPG"
               alt="Paul before transformation"
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: '140%',
-                height: '140%',
-                transform: 'translate(-50%, -50%) rotate(90deg)',
-                objectFit: 'cover',
-              }}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div className="flex flex-col justify-center md:pt-10">
-            <p className="text-base md:text-lg text-white/60 leading-[1.8]">
+            <p className="drop-cap text-base md:text-lg text-white/60 leading-[1.8]">
               Paul started training with me in August 2024 for a reason that had nothing to do with aesthetics. He'd watched his father age badly, becoming frail, weak and unable to do simple things on his own. That image stayed with him and eventually became the reason he picked up the phone. He came in as a complete beginner, stiff, achey and unsure of himself in the gym. My focus from day one was technique, learning to move properly before anything else. Paul committed to two sessions a week and never missed one. He'd often go home and practise the movements I'd shown him. The progress came slowly at first and then all at once. His body composition changed, his strength shot up and the movements that had once felt impossible became second nature. He cleaned up his diet, cut back on alcohol and arrived at every session ready to work. The sessions never got easier. He never asked them to.
             </p>
           </div>
@@ -430,7 +426,7 @@ export default function SpotlightPage() {
 
         {/* Paul pull quote */}
         <FadeUp>
-          <blockquote className="border-l-2 border-white/15 pl-8 max-w-3xl">
+          <blockquote className="pull-quote border-l-2 border-white/15 pl-8 max-w-3xl">
             <p
               className="font-black leading-snug mb-5 text-white/85"
               style={{ fontSize: 'clamp(20px, 2.8vw, 34px)', letterSpacing: '-0.03em' }}

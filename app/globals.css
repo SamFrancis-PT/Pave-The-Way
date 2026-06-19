@@ -15,6 +15,29 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Drop cap — first letter of opening story paragraphs */
+.drop-cap::first-letter {
+  float: left;
+  font-size: 4em;
+  font-weight: 900;
+  line-height: 0.78;
+  margin-right: 0.1em;
+  margin-top: 0.08em;
+  color: #fff;
+}
+
+/* Styled opening quote mark on pull quotes */
+.pull-quote::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.18);
+  margin-bottom: -0.2em;
+}
+
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }

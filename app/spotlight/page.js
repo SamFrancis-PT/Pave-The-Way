@@ -372,7 +372,7 @@ export default function SpotlightPage() {
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
             <PhotoLabel label="Before" />
             <Image
-              src="/images/Paul_before_PT_2.JPG"
+              src="/images/paul_before.JPG"
               alt="Paul before transformation"
               fill
               className="object-cover object-top"

@@ -128,7 +128,7 @@ export default function SpotlightPage() {
           priority
           sizes="100vw"
           className="object-cover"
-          style={{ filter: 'brightness(0.55) contrast(1.1)', objectPosition: '50% 22%' }}
+          style={{ filter: 'brightness(0.55) contrast(1.1)', objectPosition: '50% 38%' }}
         />
 
         {/* Scanline grid overlay */}
@@ -217,7 +217,9 @@ export default function SpotlightPage() {
             className="font-black leading-tight mx-auto"
             style={{ fontSize: 'clamp(20px, 3.2vw, 40px)', letterSpacing: '-0.04em', maxWidth: '34ch' }}
           >
-            No shortcuts. No quick fixes. Just two men who decided their best years were not behind them and did the work to prove it.
+            No shortcuts. No quick fixes. Just two men who decided their best years{' '}
+            <span style={{ color: 'rgba(255,255,255,0.38)', fontStyle: 'italic', fontWeight: 400 }}>were not behind them</span>
+            {' '}and did the work to prove it.
           </p>
         </div>
       </FadeUp>

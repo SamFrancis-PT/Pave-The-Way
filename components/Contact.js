@@ -153,6 +153,14 @@ export default function Contact() {
             </div>
           </div>
 
+          <textarea
+            name="goals"
+            placeholder="Tell me a little about yourself, what you are looking to achieve, your training background and anything else that will help me understand how I can help you."
+            required
+            rows={4}
+            className={inputClass}
+          />
+
           {status === 'error' && (
             <p className="text-red-400 text-sm">
               Something went wrong. Please email{' '}

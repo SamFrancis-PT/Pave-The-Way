@@ -70,7 +70,7 @@ export default function CTA() {
             Book Free Consultation
           </a>
           <Link
-            href="mailto:sam@pavetheway.fit"
+            href="mailto:sam@pavethewayfit.com"
             className="px-8 py-4 rounded-full border border-white/30 bg-white/5 backdrop-blur text-white font-semibold transition-all duration-300 hover:bg-white/10"
           >
             Get in Touch

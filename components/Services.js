@@ -199,6 +199,7 @@ export default function Services() {
               href={service.url}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={service.url === 'https://calendly.com/pavethewayfit/30min' ? () => typeof window.gtag_report_conversion === 'function' && window.gtag_report_conversion('https://calendly.com/pavethewayfit/30min') : undefined}
               className={`block w-full py-3 rounded-lg font-semibold text-sm text-center transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] ${
                 service.bestValue
                   ? 'bg-amber-400 text-black hover:bg-amber-300'

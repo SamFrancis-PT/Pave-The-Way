@@ -265,6 +265,7 @@ function ResultStep({ name, rec, program, explanation, direction }) {
           href="https://calendly.com/pavethewayfit/30min"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => typeof window.gtag_report_conversion === 'function' && window.gtag_report_conversion('https://calendly.com/pavethewayfit/30min')}
           className="inline-block px-8 py-3 rounded-full border border-white/20 bg-white/5 text-white text-sm font-semibold transition-all duration-300 hover:bg-white/10 hover:border-white/35"
         >
           Book a Free Call

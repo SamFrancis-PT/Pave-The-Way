@@ -65,6 +65,7 @@ export default function CTA() {
             href="https://calendly.com/pavethewayfit/30min"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => typeof window.gtag_report_conversion === 'function' && window.gtag_report_conversion('https://calendly.com/pavethewayfit/30min')}
             className="px-8 py-4 rounded-full bg-white text-black font-semibold transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:translate-y-[-2px]"
           >
             Book Free Consultation

@@ -25,6 +25,18 @@ export default function RootLayout({ children }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-18270655297');
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                'send_to': 'AW-18270655297/QYPHCPO1iMUcEMGmkIhE',
+                'event_callback': callback
+              });
+              return false;
+            }
           `}
         </Script>
         {children}

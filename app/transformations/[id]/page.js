@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import transformations from '@/data/transformations'
 import { notFound } from 'next/navigation'
+import CalendlyButton from '@/components/CalendlyButton'
 
 export function generateStaticParams() {
   return transformations.map((t) => ({ id: t.id }))
@@ -85,14 +86,9 @@ export default function TransformationPage({ params }) {
             <p className="text-base text-white/30 italic mb-12">Story coming soon.</p>
           )}
 
-          <Link
-            href="https://calendly.com/pavethewayfit/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="self-start px-8 py-4 rounded-full bg-white text-black font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:translate-y-[-2px]"
-          >
+          <CalendlyButton className="self-start px-8 py-4 rounded-full bg-white text-black font-semibold text-sm transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:translate-y-[-2px]">
             Start Your Transformation
-          </Link>
+          </CalendlyButton>
         </div>
       </div>
     </main>

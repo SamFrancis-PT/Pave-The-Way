@@ -53,6 +53,7 @@ const services = [
       'Accountability tools throughout the 12 weeks',
     ],
     savingsNote: 'Save 40% compared to the weekly rate — that is $136 off',
+    guarantee: 'Show up to every session and follow the nutrition guidance for 6 weeks. If you\'re not seeing progress, contact me in the app and I will give you a complete refund.',
     bestValue: true,
     ctaText: 'Start Your 12 Weeks',
     url: 'https://calendly.com/pavethewayfit/30min',
@@ -192,6 +193,15 @@ export default function Services() {
             {service.savingsNote && (
               <p className="text-sm font-semibold text-amber-300/90 mb-6 border-t border-amber-400/20 pt-4">
                 {service.savingsNote}
+              </p>
+            )}
+
+            {service.guarantee && (
+              <p
+                className="text-xs italic mb-6 pt-4 border-t border-white/10"
+                style={{ color: 'rgba(247,247,239,0.55)' }}
+              >
+                🛡️ {service.guarantee}
               </p>
             )}
 

@@ -56,7 +56,7 @@ const services = [
     guarantee: 'Show up to every session and follow the nutrition guidance for 6 weeks. If you\'re not seeing progress, contact me in the app and I will give you a complete refund.',
     bestValue: true,
     ctaText: 'Start Your 12 Weeks',
-    url: 'https://calendly.com/pavethewayfit/30min',
+    url: 'https://www.trainerize.me/profile/pavethewaypt/?planGUID=c6fb36b0afe84f229806168a480832f8',
   },
 ]
 

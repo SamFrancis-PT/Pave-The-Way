@@ -372,7 +372,8 @@ function Step2({ answers, update }) {
             { value: 'none', label: 'Not running at all' },
             { value: 'occasional', label: 'Occasional runs when I feel like it' },
             { value: '1_2_per_week', label: '1 to 2 runs a week' },
-            { value: '3_plus_per_week', label: '3 or more runs a week' },
+            { value: '3_5_per_week', label: '3 to 5 runs a week' },
+            { value: '6_plus_per_week', label: '6 or more runs a week' },
           ].map((opt) => (
             <RadioCard
               key={opt.value}
@@ -385,20 +386,23 @@ function Step2({ answers, update }) {
       </div>
 
       <div className="space-y-3">
-        <FieldLabel>What was your longest run in the last month?</FieldLabel>
+        <FieldLabel helper="Include all runs — easy, hard, and long runs combined.">
+          What is your current weekly running volume?
+        </FieldLabel>
         <div className="space-y-2">
           {[
-            { value: 'none', label: 'None' },
-            { value: 'under_3k', label: 'Under 3km' },
-            { value: '3_5k', label: '3 to 5km' },
-            { value: '5_10k', label: '5 to 10km' },
-            { value: '10k_plus', label: 'Over 10km' },
+            { value: '0_10km', label: '0 to 10km per week' },
+            { value: '10_20km', label: '10 to 20km per week' },
+            { value: '20_30km', label: '20 to 30km per week' },
+            { value: '30_40km', label: '30 to 40km per week' },
+            { value: '40_60km', label: '40 to 60km per week' },
+            { value: '60_80km', label: '60 to 80km per week' },
           ].map((opt) => (
             <RadioCard
               key={opt.value}
               label={opt.label}
-              selected={answers.longest_recent_run === opt.value}
-              onClick={() => update('longest_recent_run', opt.value)}
+              selected={answers.weekly_volume === opt.value}
+              onClick={() => update('weekly_volume', opt.value)}
             />
           ))}
         </div>
@@ -495,6 +499,26 @@ function Step3({ answers, update }) {
               label={opt.label}
               selected={answers.strength_training === opt.value}
               onClick={() => update('strength_training', opt.value)}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        <FieldLabel helper="Sam will build this into your plan alongside your running sessions.">
+          For the strength sessions in your plan, do you prefer lower body focused or a full body session to also build your physique?
+        </FieldLabel>
+        <div className="space-y-2">
+          {[
+            { value: 'lower_body', label: 'Lower body focused', description: 'Short, targeted sessions built specifically for runners' },
+            { value: 'full_body', label: 'Full body (build physique too)', description: 'Covers upper and lower body — more complete but slightly longer sessions' },
+          ].map((opt) => (
+            <RadioCard
+              key={opt.value}
+              label={opt.label}
+              description={opt.description}
+              selected={answers.strength_style === opt.value}
+              onClick={() => update('strength_style', opt.value)}
             />
           ))}
         </div>
@@ -606,7 +630,7 @@ export default function RunningPlanClient() {
 
     if (n === 2) {
       if (!answers.run_frequency) errs.run_frequency = 'Please select one.';
-      if (!answers.longest_recent_run) errs.longest_recent_run = 'Please select one.';
+      if (!answers.weekly_volume) errs.weekly_volume = 'Please select one.';
       if (!answers.injuries || answers.injuries.length === 0) errs.injuries = 'Please select at least one.';
     }
 
@@ -630,18 +654,20 @@ export default function RunningPlanClient() {
       return;
     }
 
-    // Check interstitials after step 1
-    if (step === 1) {
+    // Check interstitials after step 2 (when we have volume info)
+    if (step === 2) {
       if (
         answers.distance === 'marathon' &&
-        (answers.run_frequency === 'none' || answers.longest_recent_run === 'none' || answers.longest_recent_run === 'under_3k')
+        (answers.run_frequency === 'none' || answers.weekly_volume === '0_10km' || answers.weekly_volume === '10_20km')
       ) {
-        // Force 16 weeks for marathon with no base, show interstitial
         update('marathon_weeks', '16');
         setInterstitial('marathon_no_base');
         return;
       }
-      if (answers.distance === 'c25k' && answers.run_frequency === '3_plus_per_week') {
+      if (
+        answers.distance === 'c25k' &&
+        (answers.run_frequency === '3_5_per_week' || answers.run_frequency === '6_plus_per_week')
+      ) {
         setInterstitial('c25k_already_running');
         return;
       }
@@ -689,12 +715,13 @@ export default function RunningPlanClient() {
       motivation: (answers.motivations || []).join(', '),
       motivation_other: answers.motivation_other || undefined,
       run_frequency: answers.run_frequency,
-      longest_recent_run: answers.longest_recent_run,
+      weekly_volume: answers.weekly_volume,
       current_5k_seconds: parseTimeToSeconds(answers.current_5k_input) || undefined,
       injuries: answers.injuries || [],
       injury_other: answers.injury_other || undefined,
       days_per_week: answers.distance === 'c25k' ? 3 : parseInt(answers.days_per_week) || 3,
       strength_training: answers.strength_training,
+      strength_style: answers.strength_style || 'lower_body',
       first_name: answers.first_name.trim(),
       email: answers.email.trim(),
       discovery_source: answers.discovery_source || undefined,

@@ -17,7 +17,7 @@ const services = [
       'Personal best notifications',
     ],
     highlight: true,
-    url: 'https://www.trainerize.me/profile/francisfit/?planGUID=de81efb4d16f4b729760a146eed6726e',
+    url: 'https://www.trainerize.me/profile/pavethewaypt/?planGUID=de81efb4d16f4b729760a146eed6726e',
   },
   {
     title: 'Online Program',
@@ -35,7 +35,7 @@ const services = [
       'Direct feedback on your training',
     ],
     highlight: false,
-    url: 'https://www.trainerize.me/profile/francisfit/?planGUID=5d2767f1cb5a46e29a535e7a882a81ef',
+    url: 'https://www.trainerize.me/profile/pavethewaypt/?planGUID=7d3bd9e29b7149a0820dcfd21d66c7d2',
   },
   {
     title: '12 Week Coaching Introduction',

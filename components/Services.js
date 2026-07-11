@@ -109,7 +109,11 @@ const itemVariants = {
 
 export default function Services() {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, amount: 0.2 })
+  // Use 'some' so the reveal fires as soon as any part of the section enters
+  // the viewport. A percentage threshold (e.g. 0.2) can never be met on mobile
+  // where the stacked cards make the section taller than the viewport, which
+  // would leave the whole section stuck at opacity 0 (invisible).
+  const inView = useInView(ref, { once: true, amount: 'some' })
 
   return (
     <section

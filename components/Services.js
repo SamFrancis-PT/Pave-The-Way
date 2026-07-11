@@ -10,7 +10,7 @@ const services = [
     description: 'In-person coaching with expert form correction and personalised guidance.',
     features: [
       'Weekly in-person PT session',
-      'Customised training programmes',
+      'Customised training programs',
       'Pave The Way app access',
       'Nutritional guidance included',
       'Progress tracking & photos',
@@ -43,7 +43,7 @@ const services = [
     tag: 'Best Value · Save 40%',
     description: 'Work online with Sam, with access to the Pave The Way app built on the same programming methods that produced every transformation you see on this page. Remove the guesswork utilising a method that is proven to work. Commit to 12 weeks across four progressive blocks, each one building on the last. This is where foundations are built and journeys begin.',
     features: [
-      'Fully customised 12 week progressive training programme',
+      'Fully customised 12 week progressive training program',
       'Structured to build volume, intensity and training days across each block',
       'Sessions 45 to 60 minutes — built for busy professionals',
       'Pave The Way app access with exercise video library',
@@ -63,7 +63,7 @@ const services = [
 const appFeatures = [
   {
     title: 'Exercise Videos',
-    description: 'Detailed video demonstrations for every exercise in your programme.',
+    description: 'Detailed video demonstrations for every exercise in your program.',
   },
   {
     title: 'Progress Tracking',
@@ -146,7 +146,7 @@ export default function Services() {
         animate={inView ? 'visible' : 'hidden'}
         variants={itemVariants}
       >
-        Choose the coaching style that fits your lifestyle. All programmes include access to the Pave The Way app with exercise videos, nutrition guidance, and progress tracking.
+        Choose the coaching style that fits your lifestyle. All programs include access to the Pave The Way app with exercise videos, nutrition guidance, and progress tracking.
       </motion.p>
 
       <motion.div

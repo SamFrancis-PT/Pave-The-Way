@@ -65,9 +65,9 @@ const PROGRAMS = {
     link: 'https://www.trainerize.me/profile/francisfit/?planGUID=de81efb4d16f4b729760a146eed6726e',
   },
   online: {
-    name: 'Online Programme',
+    name: 'Online Program',
     price: '$27.95 / week',
-    cta: 'Get My Programme',
+    cta: 'Get My Program',
     link: 'https://www.trainerize.me/profile/francisfit/?planGUID=5d2767f1cb5a46e29a535e7a882a81ef',
   },
 }
@@ -90,24 +90,24 @@ function getExplanation(answers, rec) {
   const { challenge, holdback, background } = answers
   if (rec === 'pt') {
     if (holdback === 'Injury or physical limitations')
-      return "With physical limitations to manage, having Sam's expert eye on every session isn't optional — it's essential. He'll design a programme that works around your body, keeps you safe, and makes sure every rep is moving you forward."
+      return "With physical limitations to manage, having Sam's expert eye on every session isn't optional — it's essential. He'll design a program that works around your body, keeps you safe, and makes sure every rep is moving you forward."
     if (challenge === "I start and stop repeatedly")
       return "Your history of starting and stopping tells us one thing: accountability is the missing piece. Regular sessions with Sam mean you show up, you stay consistent, and you finally build the habit that's always slipped away before."
     if (background === "I used to train but lost the habit")
       return "You already know what consistency feels like — you just need the right structure to get back there. Sam will rebuild your routine around your life as it is now, and you'll surprise yourself with how quickly momentum returns."
     if (challenge === "I'm not seeing results despite training")
       return "You're putting in the work but not seeing the return — which means something in your approach needs adjusting. Sam will identify exactly what's holding you back and build a plan that finally makes your effort count."
-    return "Based on your answers, you'll get the most from direct, hands-on coaching. Sam will design every session around your specific goal and adapt your programme as you grow stronger."
+    return "Based on your answers, you'll get the most from direct, hands-on coaching. Sam will design every session around your specific goal and adapt your program as you grow stronger."
   }
   if (challenge === "I don't know where to start")
-    return "If you're not sure where to start, the Online Programme cuts through all the noise. You get one clear, structured plan built for your goal — no more overwhelm, just consistent progress week after week."
+    return "If you're not sure where to start, the Online Program cuts through all the noise. You get one clear, structured plan built for your goal — no more overwhelm, just consistent progress week after week."
   if (holdback === 'Too much conflicting advice')
-    return "Too much advice is as bad as none at all. The Online Programme gives you one definitive plan, built specifically for you — no more second-guessing, just structured, measurable progress."
+    return "Too much advice is as bad as none at all. The Online Program gives you one definitive plan, built specifically for you — no more second-guessing, just structured, measurable progress."
   if (holdback === 'No personalised plan')
-    return "A generic programme won't move the needle for you. Your Online Programme is built around your goal, your schedule, and your training background — giving you the personalised structure you've been missing."
+    return "A generic program won't move the needle for you. Your Online Program is built around your goal, your schedule, and your training background — giving you the personalised structure you've been missing."
   if (holdback === 'Lack of accountability')
-    return "The Online Programme pairs a structured training plan with regular check-ins from Sam — so you always know what to do next and you're never left to figure it out alone."
-  return "Based on your answers, you're a great fit for the Online Programme. You'll get a fully structured, personalised training plan with the flexibility to train wherever and whenever works for you."
+    return "The Online Program pairs a structured training plan with regular check-ins from Sam — so you always know what to do next and you're never left to figure it out alone."
+  return "Based on your answers, you're a great fit for the Online Program. You'll get a fully structured, personalised training plan with the flexibility to train wherever and whenever works for you."
 }
 
 // ─── Animation ─────────────────────────────────────────────────────────────
@@ -181,7 +181,7 @@ function FormStep({ name, email, setName, setEmail, onSubmit, onBack, submitting
         Where should we send your result?
       </h1>
       <p className="text-white/45 text-base mb-10">
-        Sam will personally reach out to discuss your programme.
+        Sam will personally reach out to discuss your program.
       </p>
 
       <form onSubmit={onSubmit} className="space-y-4">
@@ -320,7 +320,7 @@ export default function QuizPage() {
       body.append('Main Goal', answers.goal || '')
       body.append('Days Per Week', answers.days || '')
       body.append('Held Back By', answers.holdback || '')
-      body.append('Recommended Programme', rec === 'pt' ? '1-on-1 Personal Training' : 'Online Programme')
+      body.append('Recommended Program', rec === 'pt' ? '1-on-1 Personal Training' : 'Online Program')
       body.append('Source', 'Quiz Funnel')
       await fetch('https://formspree.io/f/xykqkqer', {
         method: 'POST',

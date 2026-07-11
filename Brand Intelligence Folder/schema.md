@@ -4,7 +4,7 @@ Rules that apply to all brand content generation for Pave The Way.
 
 ## Spelling & Language
 - Australian English throughout — no exceptions
-- Use: specialise, optimise, personalise, programme, customise, recognise, practise (verb)
+- Use: specialise, optimise, personalise, program, customise, recognise, practise (verb)
 - Never use: specialize, optimize, personalize, program (for training), customize
 - Short punchy sentences for hooks and social content
 - Longer empathetic copy for transformation stories and long-form
@@ -26,16 +26,16 @@ Rules that apply to all brand content generation for Pave The Way.
 ## What We Never Say
 - "Get fit" (too generic — say "reclaim your edge" or "build functional strength")
 - "Lose weight" (say "lose body fat" or "strip fat")
-- "Routine" (say "programme" or "training plan")
+- "Routine" (say "program" or "training plan")
 - "Personalize" (say "personalise")
 - "Workout" as a verb (say "train")
 
 ## Pricing (always current)
 - 1-on-1 PT: $100/week
-- Online Programme: $27.95/week
+- Online Program: $27.95/week
 - Group coaching: not yet launched (future offer $50–75/week)
 
 ## CTA Priority Order
 1. Book Free Consultation — https://calendly.com/pavethewayfit/30min
-2. Online Programme — Trainerize purchase link
+2. Online Program — Trainerize purchase link
 3. Email — sam@pavethewayfit.com

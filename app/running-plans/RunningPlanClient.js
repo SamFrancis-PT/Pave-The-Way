@@ -183,7 +183,7 @@ function Interstitial({ type, onProceed, onAdjust }) {
           <p className="text-xs font-mono text-[#d9ff63] uppercase tracking-widest">Quick note</p>
           <h2 className="text-2xl font-bold text-white">You're already past couch level.</h2>
           <p className="text-white/60 leading-relaxed">
-            You're already running three or more times a week. The Couch to 5km programme is designed for people starting from nothing. The 10km plan would challenge you properly and get you to a real goal.
+            You're already running three or more times a week. The Couch to 5km program is designed for people starting from nothing. The 10km plan would challenge you properly and get you to a real goal.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3">
@@ -482,7 +482,7 @@ function Step3({ answers, update }) {
 
       {answers.distance === 'c25k' && (
         <div className="border border-white/8 bg-white/3 rounded-lg px-4 py-3">
-          <p className="text-sm text-white/55">The Couch to 5km programme runs 3 days per week by design. That's built into your plan.</p>
+          <p className="text-sm text-white/55">The Couch to 5km program runs 3 days per week by design. That's built into your plan.</p>
         </div>
       )}
 

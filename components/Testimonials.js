@@ -18,12 +18,12 @@ const testimonials = [
   {
     name: 'Jem',
     photo: '/images/Jem.jpg',
-    quote: "Training with Sammy has been a genuinely great experience. He builds programmes that are both tailored and sustainable. I've been able to lose body fat, build lean muscle and stay consistent thanks to the structure and accountability through the fitness app.",
+    quote: "Training with Sammy has been a genuinely great experience. He builds programs that are both tailored and sustainable. I've been able to lose body fat, build lean muscle and stay consistent thanks to the structure and accountability through the fitness app.",
   },
   {
     name: 'Munib',
     photo: '/images/Munib.jpg',
-    quote: "I've had a great time training with Sammy and seen incredible results — better than I expected. The programmes and nutrition guidance have been very helpful throughout my journey. Looking forward to more progress and results.",
+    quote: "I've had a great time training with Sammy and seen incredible results — better than I expected. The programs and nutrition guidance have been very helpful throughout my journey. Looking forward to more progress and results.",
   },
 ]
 
